@@ -7,20 +7,34 @@
     <script src="bundle.js"></script>
   </head>
   <body>
-    <a-scene stats>
-      <a-box id="b1" animate-rotation="speed: 10; axe: y" position="1 1 -5" material="color: red"></a-box>
-      <a-box id="box-qui-tourne"
-        animate-rotation__rpiwezoiuigefwoiu="speed: 100; axe: y"
-        animate-rotation__y="speed: 10; axe: x"
+    <a-scene astats>
+      <a-box hover-highlighter cursor-listener aanimate-rotation="speed: 10; axe: y" position="1 1 -5" material="color: red"></a-box>
+      <a-box id="click-me"
+        cursor-listener
+        aanimate-rotation__y="speed: 10; axe: y"
+        aanimate-rotation__x="speed: 10; axe: x"
         position="3 1 -5"
         material="color: green"
+        hover-highlighter
       ></a-box>
-      <a-camera position="0 1.6 0"></a-camera>
+
+      <a-entity id="camera-rig">
+        <a-entity id="head"
+          camera
+          wasd-controls="acceleration: 10"
+          look-controls="pointerLockEnabled: true"
+          position="0 1.6 0"
+        >
+          <a-entity
+            geometry="primitive: circle; radius: 0.0005"
+            material="shader: flat; color: black"
+            position="0 0 -0.1"
+            visible="true"
+            cursor
+            raycaster="far: 10; objects: [cursor-listener]"
+          ></a-entity>
+        </a-entity>
+      </a-entity>
     </a-scene>
-    <script>
-      setTimeout(() => {
-        document.querySelector("#b1").setAttribute('animate-rotation', 'axe', 'x');
-      }, 5000);
-    </script>
   </body>
 </html>
