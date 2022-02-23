@@ -1,5 +1,4 @@
-# https://github.com/Chabloz/a-frame-48-cours.git
-Code du cours de l'option VR pour M48
+# Code du cours de l'option VR pour M48
 
 Create a folder for your project and :
 
