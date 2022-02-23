@@ -13,10 +13,30 @@
         cursor-listener
         aanimate-rotation__y="speed: 10; axe: y"
         aanimate-rotation__x="speed: 10; axe: x"
-        position="3 1 -5"
+        position="3 0 -5"
         material="color: green"
         hover-highlighter
       ></a-box>
+
+      <a-entity
+        position="0 1.25 -2"
+        animation__open="startEvents: open; property: rotation.y; to: 90; dur: 2000; easing: linear; loop: false"
+        animation__close="startEvents: close; property: rotation.y; to: 0; dur: 2000; easing: linear; loop: false"
+        listen-to__open="evt: open; target: #door1; emit: open"
+        listen-to__close="evt: close; target: #door1; emit: close"
+      >
+        <a-box
+          id="door1"
+          depth="0.2"
+          width="1.25"
+          height="2.5"
+          color="pink"
+          position="0.675 0 0"
+          cursor-listener
+          hover-highlighter
+          toggle-events="evt1: open; evt2: close"
+        ></a-box>
+      </a-entity>
 
       <a-entity id="camera-rig">
         <a-entity id="head"
