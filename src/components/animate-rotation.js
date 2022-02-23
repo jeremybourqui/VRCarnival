@@ -5,7 +5,7 @@ AFRAME.registerComponent('animate-rotation', {
     axe: {type: 'string', default: 'x'}
   },
   init: function () {
-    console.log(this.data.speed)
+
   },
   remove: function () {
 
@@ -14,8 +14,6 @@ AFRAME.registerComponent('animate-rotation', {
 
   },
   tick: function (elapsed, dt) {
-      //this.el.setAttribute('rotation', this.data.axe, elapsed / this.data.speed);
-      this.el.object3D.rotation[this.data.axe] = THREE.MathUtils.degToRad(elapsed / this.data.speed);
-
+    this.el.object3D.rotation[this.data.axe] = THREE.MathUtils.degToRad(elapsed / this.data.speed);
   }
 })
