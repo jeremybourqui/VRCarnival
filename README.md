@@ -2,8 +2,7 @@
 
 Create a folder for your project and :
 
-### Clone, fork or download
-**clone**:
+### Clone
 ```sh
 git clone https://github.com/Chabloz/a-frame-48-cours.git .
 ```
