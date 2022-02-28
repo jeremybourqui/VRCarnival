@@ -7,7 +7,7 @@ AFRAME.registerComponent('listen-to', {
   },
   init: function () {
     this.data.target.addEventListener(this.data.evt, evt => {
-      this.el.dispatchEvent(new Event(this.data.emit));
+      this.el.emit(this.data.emit);
     })
   }
 });

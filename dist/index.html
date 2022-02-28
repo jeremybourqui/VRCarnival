@@ -16,7 +16,14 @@
         position="3 0 -5"
         material="color: green"
         hover-highlighter
+        on-event-set__near="event: click; attribute: material.color; value: tomato"
+        on-event-set__far="event: unclick; attribute: material.color; value: green"
+        emit-when-near="target: #head; distance: 2; event: click; eventFar: unclick"
       ></a-box>
+
+      <im-box size="4" position="2 0 -2">
+
+      </im-box>
 
       <a-entity
         position="0 1.25 -2"
@@ -34,14 +41,15 @@
           position="0.675 0 0"
           cursor-listener
           hover-highlighter
-          toggle-events="evt1: open; evt2: close"
+          toggle-events="sourceEvt: click; evt1: open; evt2: close"
+          emit-when-near="target: #head; distance: 2; event: click; eventFar: click"
         ></a-box>
       </a-entity>
 
       <a-entity id="camera-rig">
         <a-entity id="head"
           camera
-          wasd-controls="acceleration: 10"
+          wasd-controls
           look-controls="pointerLockEnabled: true"
           position="0 1.6 0"
         >
