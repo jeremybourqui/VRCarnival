@@ -3,17 +3,22 @@ AFRAME.registerPrimitive('im-box', {
     'imbox': {}
   },
   mappings: {
-    size: 'imbox.size'
+    size: 'imbox.size',
+    color: 'imbox.color',
   }
 });
 
 AFRAME.registerComponent('imbox', {
   schema: {
-    size: {type: "number", default: 1}
+    size: {type: "number", default: 1},
+    color: {type: "color", default: 'black'}
   },
   init: function () {
     this.genVertices();
     this.genShape();
+    this.genGeometry();
+    this.genMaterial();
+    this.genMesh();
   },
   genVertices: function  () {
     const half = this.data.size /2;
@@ -40,13 +45,30 @@ AFRAME.registerComponent('imbox', {
 
     this.shape.lineTo(hg.x, hg.y);
 
-    const geometry = new THREE.ShapeGeometry( this.shape );
-    const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-    const mesh = new THREE.Mesh( geometry, material ) ;
-    this.el.setObject3D('mesh', mesh);
 
+
+  },
+
+  genGeometry: function () {
+
+    const extrudeSettings = {
+      steps: 1,
+      depth: this.data.size,
+      bevelEnabled: false,
+    };
+
+    this.geometry = new THREE.ExtrudeGeometry( this.shape, extrudeSettings );
+  },
+
+  genMaterial: function () {
+    this.material = new THREE.MeshLambertMaterial({
+       color: new THREE.Color(this.data.color)
+    } );
+  },
+
+  genMesh: function () {
+    this.mesh = new THREE.Mesh( this.geometry, this.material ) ;
+    this.el.setObject3D('mesh', this.mesh);
   }
-
-
 
 })

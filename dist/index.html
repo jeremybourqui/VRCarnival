@@ -7,7 +7,7 @@
     <script src="bundle.js"></script>
   </head>
   <body>
-    <a-scene astats>
+    <a-scene stats>
       <a-box hover-highlighter cursor-listener aanimate-rotation="speed: 10; axe: y" position="1 1 -5" material="color: red"></a-box>
       <a-box id="click-me"
         cursor-listener
@@ -21,7 +21,7 @@
         emit-when-near="target: #head; distance: 2; event: click; eventFar: unclick"
       ></a-box>
 
-      <im-box size="4" position="2 0 -2">
+      <im-box size="1" position="2 0 -2" color="tomato" hover-highlighter>
 
       </im-box>
 
@@ -46,7 +46,6 @@
         ></a-box>
       </a-entity>
 
-      <a-entity gltf-model="url(./assets/door.gltf)" scale="0.025 0.025 0.025" position="0 0 -10"></a-entity>
       <a-entity id="camera-rig">
         <a-entity id="head"
           camera
@@ -60,7 +59,7 @@
             position="0 0 -0.1"
             visible="true"
             cursor
-            raycaster="far: 10; objects: [cursor-listener]"
+            raycaster="far: 10; objects: [cursor-listener], [hover-highlighter]"
           ></a-entity>
         </a-entity>
       </a-entity>
