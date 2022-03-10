@@ -10,18 +10,13 @@
     <script src="bundle.js"></script>
   </head>
   <body>
-    <a-scene stats>
+    <a-scene stats >
       <a-entity environment="preset: forest; dressingAmount: 20; fog: 0.75; playArea: 1; groundYScale: 7"></a-entity>
-      <!-- <a-assets>
-        <a-asset-item id="gun" src="../dist/assets/revolver/scene.gltf"></a-asset-item>
+      <a-assets>
+        <a-asset-item id="gun-asset" src="assets/revolver/scene.gltf"></a-asset-item>
       </a-assets>
 
-      <a-entity 
-      gltf-model="#gun"
-      scale="0.2 0.2 0.2"
-      position=""
-      ></a-entity> -->
-      
+     
 
       <a-entity id="shooting-range">
        <a-entity id="support1"
@@ -29,7 +24,7 @@
        > 
           <a-cylinder id="target1"
           position="0 1.5 -10"
-          material="color: red"
+          material="color: blue"
           rotation="90 0 0"
           scale="0.3 0.1 0.3"
           cursor-listener
@@ -191,15 +186,28 @@
           <!-- <a-entity log geometry="primitive: plane" material="color: #111" text="color: lightgreen" position="0 0 -0.2"></a-entity> -->
         </a-entity>
         <a-entity>
-        <a-entity id="right-hand" laser-controls="objects: [cursor-listener]; far: 20; model: false;" raycaster="showLine: false" >
-          <a-cylinder
-          scale="0.01 0.3 0.01"
-          rotation="90 0 0"
-          color="black">
-          
-          </a-cylinder>
+          <a-entity id="right-hand" 
+          laser-controls="objects: [cursor-listener]; far: 20; model: false" 
+          >
+            <!-- <a-cylinder
+            scale="0.01 0.3 0.01"
+            rotation="90 0 0"
+            position="0 0 0.5"
+            color="black">
+            </a-cylinder> -->
+            <a-entity id="gun-flash"
+              cursor-listener
+              on-shoot
+            >
+            </a-entity>
+            <a-entity id="gun"
+              gltf-model="#gun-asset"
+              scale="0.08 0.08 0.08"
+              position="0 -0.058 0.05"
+              rotation="0 90 0"
+            ></a-entity>
         </a-entity>
-        
+
       </a-entity>
       </a-entity>
     </a-scene>
