@@ -4,8 +4,9 @@ AFRAME.registerComponent('when-hit', {
       this.el.addEventListener('click', evt => {
         // this.el.setAttribute('animate-hit',"");
         this.el.emit(`animTarget`, null, false);
-        console.log("evt shoot");
+        this.el.emit(`hit`);
         
+
      });
 
 

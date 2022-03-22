@@ -1,215 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>VR</title>
-    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-environment-component@1.3.1/dist/aframe-environment-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-log-component/dist/aframe-log-component.min.js"></script> 
-    <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
-    <script src="bundle.js"></script>
-  </head>
-  <body>
-    <a-scene stats >
-      <a-entity environment="preset: forest; dressingAmount: 20; fog: 0.75; playArea: 1; groundYScale: 7"></a-entity>
-      <a-assets>
-        <a-asset-item id="gun-asset" src="assets/revolver/scene.gltf"></a-asset-item>
-      </a-assets>
 
-     
+<head>
+  <meta charset="UTF-8">
+  <title>VR</title>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-environment-component@1.3.1/dist/aframe-environment-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-log-component/dist/aframe-log-component.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
+  <script src="bundle.js"></script>
+</head>
 
-      <a-entity id="shooting-range">
-       <a-entity id="support1"
-       animation__pos="property: position.x; from: -1; to: 1; dur: 2000; easing: linear; loop: true; dir: alternate; delay: 1000;"
-       > 
-          <a-cylinder id="target1"
-          position="0 1.5 -10"
-          material="color: blue"
-          rotation="90 0 0"
-          scale="0.3 0.1 0.3"
-          cursor-listener
-          when-hit
-          animation__hit="startEvents: animTarget; property: rotation.x; from: 90; to: 0; dur: 500; easing: easeInOutElastic; loop: 1; dir: alternate"
-          >       
+<body>
+  <a-scene stats>
+    <a-entity
+      environment="preset: forest; dressingAmount: 20; fog: 0.75; playArea: 1; groundYScale: 7; groundTexture: walkernoise">
+    </a-entity>
+    <a-assets>
+      <a-asset-item id="gun-asset" src="assets/revolver/scene.gltf"></a-asset-item>
+    </a-assets>
+
+    <a-entity id="shooting-range" >
+      <a-entity id="support1"
+        animation__pos="property: position.x; from: -1; to: 1; dur: 2000; easing: linear; loop: true; dir: alternate; delay: 1000;">
+        <a-cylinder id="target1" position="0 1.5 -10" material="color: blue" rotation="90 0 0" scale="0.3 0.1 0.3"
+          cursor-listener when-hit
+          animation__hit="startEvents: animTarget; property: rotation.x; from: 90; to: 0; dur: 500; easing: easeInOutElastic; loop: 1; dir: alternate">
         </a-cylinder>
       </a-entity>
       <a-entity id="support2"
-      animation__pos="property: position.x; from: -1; to: 1; dur: 2000; easing: linear; loop: true; dir: alternate; delay: 500"
-      >
-        <a-cylinder id="target2"
-          position="0 2.5 -5"
-          material="color: red"
-          rotation="90 0 0"
-          scale="0.3 0.1 0.3"
-          cursor-listener
-          when-hit
-          animation__hit="startEvents: animTarget; property: rotation.x; from: 90; to: 0; dur: 500; easing: easeInOutElastic; loop: 1; dir: alternate"
-          >       
+        animation__pos="property: position.x; from: -1; to: 1; dur: 2000; easing: linear; loop: true; dir: alternate; delay: 500">
+        <a-cylinder id="target2" position="0 2.5 -5" material="color: red" rotation="90 0 0" scale="0.3 0.1 0.3"
+          cursor-listener when-hit
+          animation__hit="startEvents: animTarget; property: rotation.x; from: 90; to: 0; dur: 500; easing: easeInOutElastic; loop: 1; dir: alternate">
         </a-cylinder>
       </a-entity>
       <a-entity id="support3"
-      animation__pos="property: position.x; from: -1; to: 1; dur: 2000; easing: linear; loop: true; delay: 1000; dir: alternate"
-      >
-        <a-cylinder id="target3"
-          position="0 2 -2"
-          material="color: red"
-          rotation="90 0 0"
-          scale="0.3 0.1 0.3"
-          cursor-listener
-          when-hit
-          animation__hit="startEvents: animTarget; property: rotation.x; from: 90; to: 0; dur: 500; easing: easeInOutElastic; loop: 1; dir: alternate"
-          >       
+        animation__pos="property: position.x; from: -1; to: 1; dur: 2000; easing: linear; loop: true; delay: 1000; dir: alternate">
+        <a-cylinder id="target3" position="0 2 -2" material="color: red" rotation="90 0 0" scale="0.3 0.1 0.3"
+          cursor-listener when-hit
+          animation__hit="startEvents: animTarget; property: rotation.x; from: 90; to: 0; dur: 500; easing: easeInOutElastic; loop: 1; dir: alternate">
         </a-cylinder>
       </a-entity>
 
-      <a-entity id="structure" >
-        <a-box
-          position="1.5 0 -5"
-          material="color: #5b270b"
-          scale="0.2 0.2 10"
-        ></a-box>
-        <a-box
-          position="-1.5 0 -5"
-          material="color: #5b270b"
-          scale="0.2 0.2 10"
-        ></a-box>
-        <a-box
-          position="-1.5 3.5 -5"
-          material="color: #5b270b"
-          scale="0.2 0.2 10"
-        ></a-box>
-        <a-box
-          position="1.5 3.5 -5"
-          material="color: #5b270b"
-          scale="0.2 0.2 10"
-        ></a-box>
-        <a-box
-          position="0 3.5 -0.343"
-          material="color: #5b270b"
-          scale="3.8 0.2 0.2"
-        ></a-box>
-        <a-box
-          position="0 3.5 -9.7"
-          material="color: #5b270b"
-          scale="3.8 0.2 0.2"
-        ></a-box>
-        <a-box
-          position="0 0 -9.7"
-          material="color: #5b270b"
-          scale="3.8 0.2 0.2"
-        ></a-box>
-        <a-box
-          position="-1.5 1.5 -0.343"
-          material="color: #5b270b"
-          scale="0.2 4 0.2"
-        ></a-box>
-        <a-box
-          position="1.5 1.5 -0.343"
-          material="color: #5b270b"
-          scale="0.2 4 0.2"
-        ></a-box>
-        <a-box
-          position="-1.5 1.5 -9.343"
-          material="color: #5b270b"
-          scale="0.2 4 0.2"
-        ></a-box>
-        <a-box id="test"
-          position="1.5 1.5 -9.343"
-          material="color: #5b270b"
-          scale="0.2 4 0.2"
-        ></a-box>
-        <a-box
-          position="1.5 1.5 -5"
-          material="color: #5b270b"
-          scale="0.2 0.2 10"
-          rotation="-22 0 0"
-        ></a-box>
-        <a-box
-          position="-1.5 1.5 -5"
-          material="color: #5b270b"
-          scale="0.2 0.2 10"
-          rotation="-22 0 0"
-        ></a-box>
-        <a-box
-          position="1.5 1.5 -5"
-          material="color: #5b270b"
-          scale="0.2 0.2 10"
-          rotation="23 0 0"
-        ></a-box>
-        <a-box
-          position="-1.5 1.5 -5"
-          material="color: #5b270b"
-          scale="0.2 0.2 10"
-          rotation="23 0 0"
-        ></a-box>
+      <a-entity id="structure">
+        <a-box position="1.5 0 -5" material="color: #5b270b" scale="0.2 0.2 10"></a-box>
+        <a-box position="-1.5 0 -5" material="color: #5b270b" scale="0.2 0.2 10"></a-box>
+        <a-box position="-1.5 3.5 -5" material="color: #5b270b" scale="0.2 0.2 10"></a-box>
+        <a-box position="1.5 3.5 -5" material="color: #5b270b" scale="0.2 0.2 10"></a-box>
+        <a-box position="0 3.5 -0.343" material="color: #5b270b" scale="3.8 0.2 0.2"></a-box>
+        <a-box position="0 3.5 -9.7" material="color: #5b270b" scale="3.8 0.2 0.2"></a-box>
+        <a-box position="0 0 -9.7" material="color: #5b270b" scale="3.8 0.2 0.2"></a-box>
+        <a-box position="-1.5 1.5 -0.343" material="color: #5b270b" scale="0.2 4 0.2"></a-box>
+        <a-box position="1.5 1.5 -0.343" material="color: #5b270b" scale="0.2 4 0.2"></a-box>
+        <a-box position="-1.5 1.5 -9.343" material="color: #5b270b" scale="0.2 4 0.2"></a-box>
+        <a-box id="test" position="1.5 1.5 -9.343" material="color: #5b270b" scale="0.2 4 0.2"></a-box>
+        <a-box position="1.5 1.5 -5" material="color: #5b270b" scale="0.2 0.2 10" rotation="-22 0 0"></a-box>
+        <a-box position="-1.5 1.5 -5" material="color: #5b270b" scale="0.2 0.2 10" rotation="-22 0 0"></a-box>
+        <a-box position="1.5 1.5 -5" material="color: #5b270b" scale="0.2 0.2 10" rotation="23 0 0"></a-box>
+        <a-box position="-1.5 1.5 -5" material="color: #5b270b" scale="0.2 0.2 10" rotation="23 0 0"></a-box>
 
         <a-entity id="table">
-          <a-box
-          position="0 1 -0.2"
-          material="color: #5b270b"
-          scale="2.75 0.02 0.3"
-          >
-        </a-box>
-        <a-box
-          position="-1 0.5 -0.2"
-          material="color: #5b270b"
-          scale="0.2 1 0.3">
-        </a-box>
-        <a-box
-          position="1 0.5 -0.2"
-          material="color: #5b270b"
-          scale="0.2 1 0.3"
-        ></a-box>
+          <a-box position="0 1 -0.2" material="color: #5b270b" scale="2.75 0.02 0.3">
+          </a-box>
+          <a-box position="-1 0.5 -0.2" material="color: #5b270b" scale="0.2 1 0.3">
+          </a-box>
+          <a-box position="1 0.5 -0.2" material="color: #5b270b" scale="0.2 1 0.3"></a-box>
         </a-entity>
       </a-entity>
 
-      </a-entity>
- 
-      <a-entity id="camera-rig">
-        <a-entity id="head"
-          camera
-          wasd-controls
-          look-controls="pointerLockEnabled: true"
-          position="0 1.6 0"
+      <a-plane 
+        color="#5b270b"
+        height="0.5"
+        width="0.5"
+        position="1.3 1.3 -1"
+        rotation="0 -25 0"
+        cursor-listener
+        game-loop
         >
-        <a-entity
-        geometry="primitive: circle; radius: 0.0005"
-        material="shader: flat; color: black"
-        position="0 0 -0.1"
-        visible="true"
-        cursor
-        raycaster="far: 10; objects: [cursor-listener], [hover-highlighter]; showLine: true"
-        ></a-entity>
+        <a-entity text="value: Shoot to start;" position="0.363 0.157 0.036"></a-entity>
+        <a-entity id="score" text="value: Score;" position="0.407 0 0.006"></a-entity>
+        <a-entity id="bestScore" text="value: Best score;" position="0.359 -0.116 0.028"></a-entity>
+      </a-plane>
+
+    </a-entity>
+
+    <a-entity id="camera-rig">
+      <a-entity id="head" camera wasd-controls look-controls="pointerLockEnabled: true" position="0 1.6 0">
+        <!-- <a-entity 
+          geometry="primitive: circle; radius: 0.0005" 
+          material="shader: flat; color: black" 
+          position="0 0 -0.1"
+          visible="true" 
+          cursor 
+          raycaster="far: 10; objects: [cursor-listener], [hover-highlighter]; showLine: true">
+        </a-entity> -->
       </a-entity>
 
-        <a-entity id="left-hand" hand-controls="hand: left; handModelStyle: lowPoly;" blink-controls="cameraRig: #camera-rig">
-          <!-- <a-entity log geometry="primitive: plane" material="color: #111" text="color: lightgreen" position="0 0 -0.2"></a-entity> -->
-        </a-entity>
-        <a-entity>
-          <a-entity id="right-hand" 
-          laser-controls="objects: [cursor-listener]; far: 20; model: false" 
-          >
-            <!-- <a-cylinder
+      <a-entity id="left-hand" hand-controls="hand: left; handModelStyle: lowPoly;"
+        blink-controls="cameraRig: #camera-rig">
+        <!-- <a-entity log geometry="primitive: plane" material="color: #111" text="color: lightgreen" position="0 0 -0.2"></a-entity> -->
+      </a-entity>
+      <a-entity>
+        <a-entity id="right-hand" laser-controls="objects: [cursor-listener]; far: 20; model: false">
+          <!-- <a-cylinder
             scale="0.01 0.3 0.01"
             rotation="90 0 0"
             position="0 0 0.5"
             color="black">
             </a-cylinder> -->
-            <a-entity id="gun-flash"
-              cursor-listener
-              on-shoot
-            >
-            </a-entity>
-            <a-entity id="gun"
-              gltf-model="#gun-asset"
-              scale="0.08 0.08 0.08"
-              position="0 -0.058 0.05"
-              rotation="0 90 0"
-            ></a-entity>
+          <a-entity id="gun-flash" cursor-listener on-shoot>
+          </a-entity>
+          <a-entity id="gun" gltf-model="#gun-asset" scale="0.08 0.08 0.08" position="0 -0.058 0.05" rotation="0 90 0">
+          </a-entity>
         </a-entity>
 
       </a-entity>
-      </a-entity>
-    </a-scene>
-  </body>
+    </a-entity>
+  </a-scene>
+</body>
+
 </html>
