@@ -136,31 +136,24 @@
 
     <a-entity id="camera-rig">
       <a-entity id="head" camera wasd-controls look-controls="pointerLockEnabled: true" position="0 1.6 0">
-        <a-entity 
+        <!-- <a-entity 
           geometry="primitive: circle; radius: 0.0005" 
           material="shader: flat; color: black" 
           position="0 0 -0.1"
           visible="true" 
           cursor
           raycaster="far: 10; objects: [cursor-listener], [hover-highlighter]; showLine: true">
-        </a-entity>
+        </a-entity> -->
       </a-entity>
 
       <a-entity id="left-hand" hand-controls="hand: left; handModelStyle: lowPoly;"
         blink-controls="cameraRig: #camera-rig">
-        <!-- <a-entity log geometry="primitive: plane" material="color: #111" text="color: lightgreen" position="0 0 -0.2"></a-entity> -->
       </a-entity>
       <a-entity>
         <a-entity id="right-hand" 
           laser-controls="objects: [cursor-listener]; far: 20; model: false;"
           raycaster="showLine: false; lineOpacity: 0;"
           >
-          <!-- <a-cylinder
-            scale="0.01 0.3 0.01"
-            rotation="90 0 0"
-            position="0 0 0.5"
-            color="black">
-            </a-cylinder> -->
           <a-entity id="gun-flash" cursor-listener on-shoot>
           </a-entity>
           <a-entity id="gun" gltf-model="#gun-asset" scale="0.08 0.08 0.08" position="0 -0.058 0.05" rotation="0 90 0">
