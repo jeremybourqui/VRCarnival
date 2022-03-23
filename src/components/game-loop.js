@@ -5,8 +5,6 @@ AFRAME.registerComponent('game-loop', {
 
       this.el.addEventListener('click', evt => {
         console.log("gameloop");
-        // animer cible
-        // chrono 1 minute
         
         gameStart = () => {
             document.querySelector('#shooting-range').setAttribute('score', null);
@@ -14,6 +12,9 @@ AFRAME.registerComponent('game-loop', {
                                                                         'to': {x: 0, y: 0, z: 0},                                 
                                                                         'easing': 'easeInOutElastic',                                 
                                                                         'dur': '1000'});
+            document.querySelector('#targets').setAttribute('sound', {'src': '#fair-sound',
+                                                                      'loop': 'true'
+                                                                    });
             this.el.emit(`gameStart`);
         };
         gameStart();
@@ -25,7 +26,7 @@ AFRAME.registerComponent('game-loop', {
                                                                             'easing': 'easeInOutElastic',                                 
                                                                             'dur': '1000'});
             this.el.emit(`gameEnd`);
-        }, 5000);
+        }, 30000);
         
 
      });

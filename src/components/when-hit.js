@@ -7,8 +7,6 @@ AFRAME.registerComponent('when-hit', {
         this.el.emit(`hit`);
         this.el.emit(`animStart`, null, false);
 
-        
-
      });
 
 
