@@ -20,29 +20,32 @@
       <a-asset-item id="gun-asset" src="assets/revolver/scene.gltf"></a-asset-item>
     </a-assets>
 
-    <a-entity id="shooting-range" >
-      <a-entity id="support1"
-        animation__pos="property: position.x; from: -1; to: 1; dur: 2000; easing: linear; loop: true; dir: alternate; delay: 1000;">
-        <a-cylinder id="target1" position="0 1.5 -10" material="color: blue" rotation="90 0 0" scale="0.3 0.1 0.3"
-          cursor-listener when-hit
-          animation__hit="startEvents: animTarget; property: rotation.x; from: 90; to: 0; dur: 500; easing: easeInOutElastic; loop: 1; dir: alternate">
-        </a-cylinder>
+    <a-entity id="shooting-range">
+      <a-entity id="targets"
+      position="0 -2.837 0"
+      >
+        <a-entity id="support1"
+          animation__pos="property: position.x; from: -1; to: 1; dur: 2000; easing: linear; loop: true; dir: alternate; delay: 1000;">
+          <a-cylinder id="target1" position="0 1.5 -10" material="color: blue" rotation="90 0 0" scale="0.3 0.1 0.3"
+            cursor-listener when-hit
+            animation__hit="startEvents: animTarget; property: rotation.x; from: 90; to: 0; dur: 500; easing: easeInOutElastic; loop: 1; dir: alternate">
+          </a-cylinder>
+        </a-entity>
+        <a-entity id="support2"
+          animation__pos="property: position.x; from: -1; to: 1; dur: 2000; easing: linear; loop: true; dir: alternate; delay: 500">
+          <a-cylinder id="target2" position="0 2.5 -5" material="color: red" rotation="90 0 0" scale="0.3 0.1 0.3"
+            cursor-listener when-hit
+            animation__hit="startEvents: animTarget; property: rotation.x; from: 90; to: 0; dur: 500; easing: easeInOutElastic; loop: 1; dir: alternate">
+          </a-cylinder>
+        </a-entity>
+        <a-entity id="support3"
+          animation__pos="property: position.x; from: -1; to: 1; dur: 2000; easing: linear; loop: true; delay: 1000; dir: alternate">
+          <a-cylinder id="target3" position="0 2 -2" material="color: red" rotation="90 0 0" scale="0.3 0.1 0.3"
+            cursor-listener when-hit
+            animation__hit="startEvents: animTarget; property: rotation.x; from: 90; to: 0; dur: 500; easing: easeInOutElastic; loop: 1; dir: alternate">
+          </a-cylinder>
+        </a-entity>
       </a-entity>
-      <a-entity id="support2"
-        animation__pos="property: position.x; from: -1; to: 1; dur: 2000; easing: linear; loop: true; dir: alternate; delay: 500">
-        <a-cylinder id="target2" position="0 2.5 -5" material="color: red" rotation="90 0 0" scale="0.3 0.1 0.3"
-          cursor-listener when-hit
-          animation__hit="startEvents: animTarget; property: rotation.x; from: 90; to: 0; dur: 500; easing: easeInOutElastic; loop: 1; dir: alternate">
-        </a-cylinder>
-      </a-entity>
-      <a-entity id="support3"
-        animation__pos="property: position.x; from: -1; to: 1; dur: 2000; easing: linear; loop: true; delay: 1000; dir: alternate">
-        <a-cylinder id="target3" position="0 2 -2" material="color: red" rotation="90 0 0" scale="0.3 0.1 0.3"
-          cursor-listener when-hit
-          animation__hit="startEvents: animTarget; property: rotation.x; from: 90; to: 0; dur: 500; easing: easeInOutElastic; loop: 1; dir: alternate">
-        </a-cylinder>
-      </a-entity>
-
       <a-entity id="structure">
         <a-box position="1.5 0 -5" material="color: #5b270b" scale="0.2 0.2 10"></a-box>
         <a-box position="-1.5 0 -5" material="color: #5b270b" scale="0.2 0.2 10"></a-box>
@@ -87,14 +90,14 @@
 
     <a-entity id="camera-rig">
       <a-entity id="head" camera wasd-controls look-controls="pointerLockEnabled: true" position="0 1.6 0">
-        <!-- <a-entity 
+        <a-entity 
           geometry="primitive: circle; radius: 0.0005" 
           material="shader: flat; color: black" 
           position="0 0 -0.1"
           visible="true" 
           cursor 
           raycaster="far: 10; objects: [cursor-listener], [hover-highlighter]; showLine: true">
-        </a-entity> -->
+        </a-entity>
       </a-entity>
 
       <a-entity id="left-hand" hand-controls="hand: left; handModelStyle: lowPoly;"
@@ -102,7 +105,10 @@
         <!-- <a-entity log geometry="primitive: plane" material="color: #111" text="color: lightgreen" position="0 0 -0.2"></a-entity> -->
       </a-entity>
       <a-entity>
-        <a-entity id="right-hand" laser-controls="objects: [cursor-listener]; far: 20; model: false">
+        <a-entity id="right-hand" 
+          laser-controls="objects: [cursor-listener]; far: 20; model: false;"
+          raycaster="showLine: false; lineOpacity: 0;"
+          >
           <!-- <a-cylinder
             scale="0.01 0.3 0.01"
             rotation="90 0 0"

@@ -7,22 +7,25 @@ AFRAME.registerComponent('game-loop', {
         console.log("gameloop");
         // animer cible
         // chrono 1 minute
-
+        
         gameStart = () => {
             document.querySelector('#shooting-range').setAttribute('score', null);
-            console.log(document.querySelector('#shooting-range'));
-            console.log("gamestart");
+            document.querySelector('#targets').setAttribute('animation', {'property': 'position',
+                                                                        'to': {x: 0, y: 0, z: 0},                                 
+                                                                        'easing': 'easeInOutElastic',                                 
+                                                                        'dur': '1000'});
             this.el.emit(`gameStart`);
         };
         gameStart();
 
         setTimeout(() =>{
             document.querySelector('#shooting-range').removeAttribute('score');
-            document.querySelector('#shooting-range').removeAttribute('score');
-            console.log(document.querySelector('#shooting-range'));
-            console.log("gameend");
+            document.querySelector('#targets').setAttribute('animation', {'property': 'position',
+                                                                            'to': {X: 0, y: -2.837, z: 0},                                 
+                                                                            'easing': 'easeInOutElastic',                                 
+                                                                            'dur': '1000'});
             this.el.emit(`gameEnd`);
-        }, 10000);
+        }, 5000);
         
 
      });

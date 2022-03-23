@@ -5,6 +5,8 @@ AFRAME.registerComponent('when-hit', {
         // this.el.setAttribute('animate-hit',"");
         this.el.emit(`animTarget`, null, false);
         this.el.emit(`hit`);
+        this.el.emit(`animStart`, null, false);
+
         
 
      });
