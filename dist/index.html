@@ -20,28 +20,8 @@
       <a-asset-item id="gun-asset" src="assets/revolver/scene.gltf"></a-asset-item>
       <audio id="fair-sound" src="assets/sounds/fairground.mp3" preload="auto"></audio>
       <audio id="hit-sound" src="assets/sounds/metal_hit_cropped.mp3" preload="auto"></audio>
+      <audio id="gear-sound" src="assets/sounds/mechanical_sound_effect_cropped.mp3" preload="auto"></audio>
     </a-assets>
-
-    <!-- <a-plane id="welcome-board"
-        color="#5b270b"
-        height="1"
-        width="1"
-        position="0 1.836 -1"
-        rotation="0 0 0"
-        cursor-listener
-        sound="src: #fair-sound; on: click; loop: true;"
-        toggle-visibility
-        >
-        <a-entity text="value: Welcome to the fair;" position="0.289 0.298 0.036"></a-entity>
-        <a-entity text="value: Shoot me to start;" position="0.326 0.177 0.006"></a-entity>
-        <a-entity text="value: Credit : 
-        Revolver model
-        This work is based on Revolver (https://sketchfab.com/3d-models/revolver-99c4919b990f44de93454c8bfa78b647) by graycar23 (https://sketchfab.com/graycar23) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
-        sound
-        Fairground Sound Effects, by Played N Faved - Sound Effects & Stock Footage, Creative Commons license
-
-        ;" position="0.06 -0.154 0.028"></a-entity>
-      </a-plane> -->
 
     <a-entity id="shooting-range">
       <a-entity id="targets"
@@ -144,7 +124,8 @@
         rotation="0 -25 0"
         cursor-listener
         game-loop
-        sound="src: #fair-sound; on: click; loop: true;"
+        sound__fair="src: #fair-sound; on: click; loop: true;"
+        sound__gear="src: #gear-sound; on: click;"
         >
         <a-entity text="value: Shoot me to start;" position="0.363 0.157 0.036"></a-entity>
         <a-entity id="score" text="value: Score;" position="0.407 0 0.006"></a-entity>
@@ -155,14 +136,14 @@
 
     <a-entity id="camera-rig">
       <a-entity id="head" camera wasd-controls look-controls="pointerLockEnabled: true" position="0 1.6 0">
-        <!-- <a-entity 
+        <a-entity 
           geometry="primitive: circle; radius: 0.0005" 
           material="shader: flat; color: black" 
           position="0 0 -0.1"
           visible="true" 
           cursor
           raycaster="far: 10; objects: [cursor-listener], [hover-highlighter]; showLine: true">
-        </a-entity> -->
+        </a-entity>
       </a-entity>
 
       <a-entity id="left-hand" hand-controls="hand: left; handModelStyle: lowPoly;"
