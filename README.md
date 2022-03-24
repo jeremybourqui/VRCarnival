@@ -1,10 +1,10 @@
-# Code du cours de l'option VR pour M48
+# Vr carnival
 
 Create a folder for your project and :
 
 ### Clone
 ```sh
-git clone https://github.com/Chabloz/a-frame-48-cours.git .
+git clone https://github.com/jeremybourqui/VRCarnival.git .
 ```
 ### Install
 ```sh
