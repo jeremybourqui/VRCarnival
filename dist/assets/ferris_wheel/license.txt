@@ -1,0 +1,11 @@
+Model Information:
+* title:	Ferris Wheel
+* source:	https://sketchfab.com/3d-models/ferris-wheel-22d13b14e0a4455db9e4fb37cda960cc
+* author:	SkyeSladeUT (https://sketchfab.com/SkyeSladeUT)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Ferris Wheel" (https://sketchfab.com/3d-models/ferris-wheel-22d13b14e0a4455db9e4fb37cda960cc) by SkyeSladeUT (https://sketchfab.com/SkyeSladeUT) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
